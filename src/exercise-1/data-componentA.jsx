@@ -4,6 +4,7 @@ import { Data } from "./data-class"
 
 const DataComponent = () => {
     const defaultContact = new Data('Pepe', 'Torres', 'pepemail@torres.com', true)
+
     return(
         <div>
             <p>
