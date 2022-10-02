@@ -1,4 +1,5 @@
 import './App.css';
+import PrincipalComponent from './exercise-4/principal-component';
 import DataComponent from './exercise-1/data-componentA';
 import Clock1 from './exercise-2/class-component';
 import Clock2 from './exercise-2/function-component';
@@ -7,10 +8,11 @@ import ViewContactsList from './exercise-3/view-contacts-list';
 function App() {
   return (
     <div className="App">
-      <DataComponent />
+     {/* <DataComponent />
       <Clock1 />
       <Clock2 />
-      <ViewContactsList />
+  <ViewContactsList />*/}
+      <PrincipalComponent />
     </div>
   );
 }

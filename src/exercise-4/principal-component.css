@@ -1,0 +1,13 @@
+body{
+    background-color: lightsteelblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-container{
+    height: 255px;
+    width: 255px;
+    border: 3px solid black;
+    margin-top: 100px;
+}
