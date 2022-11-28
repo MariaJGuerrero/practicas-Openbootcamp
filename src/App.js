@@ -8,6 +8,7 @@ import IndexChuck from './exercise-5/index-chuck';
 import TodosContainer from './exercise-6/components/containers/todo-container';
 import TodoFormContainer from './exercise-6/components/containers/todo-form-container';
 import FilterOptions from './exercise-6/components/pure/filtersOptions';
+import TasksListComponent from './exercise-7/principal-component';
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
       <Clock2 />
       <PrincipalComponent />
       <IndexChuck />
-      <ViewContactsList />*/}
+      <ViewContactsList />
       <TodosContainer />
       <TodoFormContainer />
-      <FilterOptions />
+  <FilterOptions />*/}
+  <TasksListComponent />
     </div>
   );
 }
