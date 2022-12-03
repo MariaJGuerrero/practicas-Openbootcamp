@@ -88,11 +88,15 @@ const filterReducer = (state, action) => {
 
 
 
+
+
+
 const TasksListComponent = () => {
 
-    const [state, dispatch] = useReducer(reducer, tasksList)
+    const [taskListState, dispatch] = useReducer(reducer, tasksList)
     //const [filterState, filterDispatch] = useReducer(filterReducer, tasksList)
-    const [isCompleted, setIsCompleted] = useState(state.completed)
+    const [tasksListView, setTasksListView] = useState('SHOW_ALL')
+    let filteredTasklist = [];
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -108,25 +112,41 @@ const TasksListComponent = () => {
         })
     }
 
-    const filterCompletedTrue = () => state.filter((task) => isCompleted ? <li>{task}</li> : '') 
-    const filterCompletedFalse = () => state.filter((task) => isCompleted ? '' : <li>{task}</li>) 
+
+
+    console.log(taskListState)
+    switch (tasksListView) {
+        case 'SHOW_ALL':
+            filteredTasklist = taskListState
+            break;
+        case 'SHOW_COMPLETED':
+            filteredTasklist = taskListState.filter(task => task.completed)            
+            break;
+        case 'SHOW_UNCOMPLETED':
+            filteredTasklist = taskListState.filter(task => !task.completed)
+            console.log('uncompletd',filteredTasklist)
+            break;
+        default:
+            break;
+    }
     
+
+   
 
     return(
         <div>
             <button onClick={
-                () => [...state]
+                () => setTasksListView('SHOW_ALL')
             }>Show all</button>
             <button onClick={
-                () => filterCompletedTrue()
+                () => setTasksListView('SHOW_COMPLETED')
             }>Show completed</button>
             <button onClick={
-                () => filterCompletedFalse()
+                () => setTasksListView('SHOW_UNCOMPLETED')
             }>Show uncompleted</button>
             <h1>TASKS</h1>
-            <ul>{console.log('estadooooo2', state)}{state.map((task)=> 
+            <ul>{filteredTasklist.map((task)=> 
                 <div key={task.id}>
-                    {setIsCompleted(task.completed)}
                     <li style={{textDecoration: task.completed ? 'line-through' : 'none'}}>
                         {task.name}: {task.description}
                         <button onClick={
